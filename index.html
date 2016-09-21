@@ -1,0 +1,529 @@
+<html lang="en">
+	<head>
+		<title>Finomena Test</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!-- JQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- google pie chart -->
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<!-- CSS -->
+		<style>
+			.red { color: #eb4141; }
+			.green { color: #006400; }
+
+			form input{
+				width: 100% ;
+			    height: 35px ;
+			    padding: 3px 7px 3px 7px ;
+			    background: #fefefe ;
+			    border: 1px solid #ddd;
+			    border-radius: 2px ;
+			    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1) inset ;
+			    color: #555 ;
+			    font-size: 16px ;
+			}
+
+			li{	font-size: 16px ;	}
+
+			label.radio-inline {
+			  line-height: 25px;
+			  cursor: pointer;
+			}
+			/* css for ripple effect */
+			@-webkit-keyframes ripple-animation {
+			  0% {
+			    -webkit-transform: scale(.01);
+			            transform: scale(.01);
+			  }
+			  100% {
+			    -webkit-transform: scale(5);
+			            transform: scale(5);
+			  }    
+			}
+			@keyframes ripple-animation {
+			  0% {
+			    -webkit-transform: scale(.01);
+			            transform: scale(.01);
+			  }
+			  100% {
+			    -webkit-transform: scale(5);
+			            transform: scale(5);
+			  }     
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<center><h1>Finomena Test</h1></center>
+			<br><hr>
+			<form name="submitName" method="POST" onsubmit="return startTestFunc();">
+			<div id="nameDiv" class="row">
+				<p></p>
+				<div id="nameDivContent" class="col-sm-6 col-sm-offset-3">
+					<label style="font:20px bold;" id="nameLabel"> Enter Your Name <span class="red">*</span></label>
+					<div class="row">
+					<div class="col-sm-9">
+						<input type="text" name="name" id="userName" required="required" placeholder="Your Name" pattern="[A-Za-z]{1}[A-Za-z .]+">
+					</div>
+					<div class="col-sm-3">
+						<button class="btn btn-primary" type="submit" id="strtTestBut" style="width:120px;height:35px;">Start The Test</button>
+					</div>
+					</div>
+				</div>
+			</div>
+			</form>
+			<p></p>
+			<hr>
+			<div id="mainDiv">
+				<div id="instructionsDiv" class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+						<h2><u>Instructions</u></h2>
+						<ul>
+							<li>Make sure you have a good internet connection.</li>
+							<li>Enter Your Name in given Input Box and then click on "Start The test" button.</li>
+							<li>There are five multiple choice questions.</li>
+							<li>You have 4 options for each question.</li>
+							<li>Among those options only one is correct</li>
+							<li>You must have select an option and then click on "Next question" button to solve next question. </li>
+							<li>At the end of test Your marks is displayed along with your correct/incorrect pie chart.</li>
+							<li>Correct answer of the each question will be displayed at the end of test.</li>
+						</ul>
+					</div>
+				</div>
+				<div id="QuesAnsDiv" class="row" style="display:none;">
+					<div class="col-sm-9 col-sm-offset-2">
+						<div id="Q1" style="display:none;">
+							<b>1) Let G be a graph with n vertices and m edges. What is the tightest upper bound on the running time on Depth First Search of G? Assume that the graph is represented using adjacency matrix.
+							<br><br><br><br>
+							<div class="row">
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%" data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q1opt" value="O(n)" style="width:18px;height:18px;" required>&nbsp O(n) 
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%" data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q1opt" value="O(m+n)" style="width:18px;height:18px;" required>&nbsp O(m+n) 
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%"  data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q1opt" value="O(n^2)" style="width:18px;height:18px;" required>&nbsp O(n^2) 
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%"  data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" class="button ripple-con" name="Q1opt" value="O(mn)" style="width:18px;height:18px;" required>&nbsp O(mn) 
+								</label>
+								<span class="ripple"></span>
+							</div>
+							</div>
+							</b>
+							<br><br>
+							<div id="nextQuesDiv1" style="float:right;display:none;">
+								<button class="btn btn-success" type="button" id="nextQuesBut1" style="width:122px;height:35px;"><b><i>Next Question</i></b></button>
+							</div>
+						</div>
+						<div id="Q2" style="display:none;">
+							<b>2) The minimum number of comparisons required to find the minimum and the maximum of 100 numbers is _________.
+							<br><br><br><br>
+							<div class="row">
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%"  data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q2opt" value="146" style="width:18px;height:18px;" required>&nbsp 146 
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%"  data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q2opt" value="147" style="width:18px;height:18px;" required>&nbsp 147 
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%"  data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q2opt" value="148" style="width:18px;height:18px;" required>&nbsp 148 
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%"  data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q2opt" value="150" style="width:18px;height:18px;" required>&nbsp 150 
+								</label>
+								<span class="ripple"></span>
+							</div>
+							</div>
+							</b>
+							<br><br>
+							<div id="nextQuesDiv2" style="float:right;display:none;">
+								<button class="btn btn-success" type="button" id="nextQuesBut2" style="width:122px;height:35px;"><b><i>Next Question</i></b></button>
+							</div>
+						</div>
+						<div id="Q3" style="display:none;">
+							<b>3) The number of elements that can be sorted in Θ(logn) time using heap sort is
+							<br><br><br><br>
+							<div class="row">
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%" data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q3opt" value="Θ(1)" style="width:18px;height:18px;" required>&nbsp Θ(1) 
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%" data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q3opt" value="Θ(sqrt(logn))" style="width:18px;height:18px;" required>&nbsp Θ(sqrt(logn)) 
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%" data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q3opt" value="Θ(Log n/(Log Log n))" style="width:18px;height:18px;" required>&nbsp Θ(Log n/(Log Log n))
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%" data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q3opt" value="Θ(Log n)" style="width:18px;height:18px;" required>&nbsp Θ(Log n) 
+								</label>
+								<span class="ripple"></span>
+							</div>
+							</div>
+							</b>
+							<br><br>
+							<div id="nextQuesDiv3" style="float:right;display:none;">
+								<button class="btn btn-success" type="button" id="nextQuesBut3" style="width:122px;height:35px;"><b><i>Next Question</i></b></button>
+							</div>
+						</div>
+						<div id="Q4" style="display:none;">
+							<b>4) The minimum number of arithmetic operations required to evaluate the polynomial P(X) = X^5 + 4X^3 + 6X + 5 for a given value of X using only one temporary variable.
+							<br><br><br><br>
+							<div class="row">
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%" data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q4opt" value="6" style="width:18px;height:18px;" required>&nbsp 6 
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%" data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q4opt" value="7" style="width:18px;height:18px;" required>&nbsp 7
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%" data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q4opt" value="8" style="width:18px;height:18px;" required>&nbsp 8
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%" data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q4opt" value="9" style="width:18px;height:18px;" required>&nbsp 9
+								</label>
+								<span class="ripple"></span>
+							</div>
+							</div>
+							</b>
+							<br><br>
+							<div id="nextQuesDiv4" style="float:right;display:none;">
+								<button class="btn btn-success" type="button" id="nextQuesBut4" style="width:122px;height:35px;"><b><i>Next Question</i></b></button>
+							</div>
+						</div>
+						<div id="Q5" style="display:none;">
+							<b>5) You have an array of n elements. Suppose you implement quicksort by always choosing the central element of the array as the pivot. Then the tightest upper bound for the worst case performance is
+							<br><br><br><br>
+							<div class="row">
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%" data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q5opt" value="O(n^2)" style="width:18px;height:18px;" required>&nbsp O(n^2) 
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%" data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q5opt" value="O(nLogn)" style="width:18px;height:18px;" required>&nbsp O(nLogn)
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%" data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q5opt" value="Θ(nLogn)" style="width:18px;height:18px;" required>&nbsp Θ(nLogn)
+								</label>
+								<span class="ripple"></span>
+							</div>
+							<div class="col-xs-6 col-sm-3" style="padding-bottom:10px;">
+								<label class="radio-inline ripple-effect" data-ripple-wrap-radius="10%" data-ripple-color="rgba(0,255,0,0.4)">
+									<input type="radio" name="Q5opt" value="O(n^3)" style="width:18px;height:18px;" required>&nbsp O(n^3)
+								</label>
+								<span class="ripple"></span>
+							</div>
+							</div>
+							</b>
+							<br><br>
+							<div id="nextQuesDiv5" style="float:right;display:none;">
+								<button class="btn btn-success" type="button" id="nextQuesBut5" style="width:122px;height:35px;"><b><i>End the test</i></b></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="finalDiv" style="display:none;">
+					<div class="row">
+					<div class="col-xs-8 col-xs-offset-2">
+						<div id="graphDiv" style="width:500px;height:250px;">
+							<img src="loading.gif" alt="Loading..." style="position:absolute;">
+						</div>
+					</div></div>
+					<hr>
+					<div class="row">
+					<div class="col-xs-8 col-xs-offset-2">
+						<h2><u>Overview of Test</u></h2><br>
+						<div id="resultVieDiv">
+							<b>Q1. Let G be a graph with n vertices and m edges. What is the tightest upper bound on the running time on Depth First Search of G? Assume that the graph is represented using adjacency matrix.</b><br>
+							<div class="row">
+							<div class="col-sm-6">
+								<p class="green">Correct Answer : O(n^2)</p>
+							</div>
+							<div class="col-sm-6">
+								<p class="red" id="yourAns1"></p>
+							</div>
+							</div><br>
+							<b>Q2. The minimum number of comparisons required to find the minimum and the maximum of 100 numbers is ________</b><br>
+							<div class="row">
+							<div class="col-sm-6">
+								<p class="green">Correct Answer : 147</p>
+							</div>
+							<div class="col-sm-6">
+								<p class="red" id="yourAns2"></p>
+							</div>
+							</div><br>
+							<b>Q3. The number of elements that can be sorted in Θ(logn) time using heap sort is</b><br>
+							<div class="row">
+							<div class="col-sm-6">
+								<p class="green">Correct Answer : Θ(Log n/(Log Log n))</p>
+							</div>
+							<div class="col-sm-6">
+								<p class="red" id="yourAns3"></p>
+							</div>
+							</div><br>
+							<b>Q4. The minimum number of arithmetic operations required to evaluate the polynomial P(X) = X^5 + 4X^3 + 6X + 5 for a given value of X using only one temporary variable.</b><br>
+							<div class="row">
+							<div class="col-sm-6">
+								<p class="green">Correct Answer : 7</p>
+							</div>
+							<div class="col-sm-6">
+								<p class="red" id="yourAns4"></p>
+							</div>
+							</div><br>
+							<b>Q5. You have an array of n elements. Suppose you implement quicksort by always choosing the central element of the array as the pivot. Then the tightest upper bound for the worst case performance is</b><br>
+							<div class="row">
+							<div class="col-sm-6">
+								<p class="green">Correct Answer : O(n^2)</p>
+							</div>
+							<div class="col-sm-6">
+								<p class="red" id="yourAns5"></p>
+							</div>
+							</div><hr>
+						</div>
+					</div></div>
+				</div>
+			</div>
+		</div>
+		<script>
+			function startTestFunc(){
+				$("#nameDivContent").html("<p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 0/5</b></p>");
+				$("#instructionsDiv").hide();
+				$("#QuesAnsDiv").show();
+				$("#Q1").show();
+				return false;
+			}
+			$(function(){
+				$("input[name=Q1opt]").click(function(){
+					$("#nextQuesDiv1").show();
+				});
+				$("#nextQuesBut1").click(function(){
+					$("#nameDivContent").html("<p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 1/5</b></p>");
+					$("#Q1").hide();
+					$("#Q2").show();
+				});
+				$("input[name=Q2opt]").click(function(){
+					$("#nextQuesDiv2").show();
+				});
+				$("#nextQuesBut2").click(function(){
+					$("#nameDivContent").html("<p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 2/5</b></p>");
+					$("#Q2").hide();
+					$("#Q3").show();
+				});
+				$("input[name=Q3opt]").click(function(){
+					$("#nextQuesDiv3").show();
+				});
+				$("#nextQuesBut3").click(function(){
+					$("#nameDivContent").html("<p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 3/5</b></p>");
+					$("#Q3").hide();
+					$("#Q4").show();
+				});
+				$("input[name=Q4opt]").click(function(){
+					$("#nextQuesDiv4").show();
+				});
+				$("#nextQuesBut4").click(function(){
+					$("#nameDivContent").html("<p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 4/5</b></p>");
+					$("#Q4").hide();
+					$("#Q5").show();
+				});
+				$("input[name=Q5opt]").click(function(){
+					$("#nextQuesDiv5").show();
+				});
+				$("#nextQuesBut5").click(function(){
+					$("#Q5").hide();
+					$("#finalDiv").show();
+					var totalCorrect = 0;
+					var givenAns1 = $('input[name=Q1opt]:checked').val();
+					if(givenAns1 == 'O(n^2)') totalCorrect++;
+					$("#yourAns1").text("Your Answer : " + givenAns1);
+					var givenAns2 = $('input[name=Q2opt]:checked').val();
+					if(givenAns2 == '147') totalCorrect++;
+					$("#yourAns2").text("Your Answer : " + givenAns2);
+					var givenAns3 = $('input[name=Q3opt]:checked').val();
+					if(givenAns3 == 'Θ(Log n/(Log Log n))') totalCorrect++;
+					$("#yourAns3").text("Your Answer : " + givenAns3);
+					var givenAns4 = $('input[name=Q4opt]:checked').val();
+					if(givenAns4 == '7') totalCorrect++;
+					$("#yourAns4").text("Your Answer : " + givenAns4);
+					var givenAns5 = $('input[name=Q5opt]:checked').val();
+					if(givenAns5 == 'O(n^2)') totalCorrect++;
+					$("#yourAns5").text("Your Answer : " + givenAns5);
+					$("#nameDivContent").html("<p><b>Thanks " + $("#userName").val() + ", </b></p><p><b>Your marks : " + totalCorrect + "/5</b></p>");
+					// pie chart
+					google.charts.load("current", {packages:["corechart"]});
+					google.charts.setOnLoadCallback(drawChart);
+					function drawChart() {
+						var data = google.visualization.arrayToDataTable([
+							['Result', 'Correct/Incorrect'],
+							['Correct', totalCorrect],
+							['Incorrect', 5-totalCorrect]
+						]);
+
+						var options = {
+							title: 'Your Result graph',
+							is3D: true,
+						};
+
+						var chart = new google.visualization.PieChart($('#graphDiv')[0]);
+						chart.draw(data, options);
+					}
+				});
+			});
+		</script>
+
+		<!-- js for ripple effect-->
+		<script>
+			$(document).ready(function($) { 
+				$('body').on( 'click', '.ripple-effect', function(e){
+					//e.preventDefault();
+					var the_dom = $(this);
+					var limit = the_dom.attr( 'data-ripple-limit' );
+					var color = the_dom.attr( 'data-ripple-color' );
+					if( typeof color == 'undefined' ){
+						var color = 'rgba( 0, 0, 0, 0.3 )';
+					}
+
+					var radius = the_dom.attr( 'data-ripple-wrap-radius' );
+					if( typeof radius == 'undefined' ){
+						var radius = 0;
+					}
+
+					if( typeof limit == 'undefined' ){	
+						var the_dom_limit = the_dom;
+					} else {
+						var the_dom_limit = the_dom.closest( limit );
+					}
+
+					var the_dom_offset = the_dom_limit.offset();		
+					var click_x = e.pageX;
+					var click_y = e.pageY;
+
+					var the_dom_width = the_dom_limit.outerWidth();
+					var the_dom_height = the_dom_limit.outerHeight();
+
+					var ripple_effect_wrap = $('<span class="ripple-effect-wrap"></span>');
+					ripple_effect_wrap.css({
+						'width' 			: the_dom_width,
+						'height'			: the_dom_height,
+						'position' 			: 'absolute',
+						'top'			 	: the_dom_offset.top,
+						'left'	 			: the_dom_offset.left,
+						'z-index' 			: 10000,
+						'overflow' 			: 'hidden',
+						'background-clip'	: 'padding-box',
+						'-webkit-border-radius' : radius,
+						'border-radius'		: radius
+					});
+
+					var ripple_effect_wrap_class = the_dom.attr( 'data-ripple-wrap-class' );
+
+					if( typeof ripple_effect_wrap_class != 'undefined' ){
+						ripple_effect_wrap.addClass( ripple_effect_wrap_class );
+					}
+
+					ripple_effect_wrap.appendTo('body');
+					
+					var click_x_ripple = click_x - the_dom_offset.left;
+					var click_y_ripple = click_y - the_dom_offset.top;
+					var circular_width = 1000;
+					
+					var ripple = $('<span class="ripple"></span>');
+					ripple.css({
+						'width' 						: circular_width,
+						'height'						: circular_width,
+						'background'					: color,
+						'position'						: 'absolute',
+						'top'							: click_y_ripple - ( circular_width / 2 ),
+						'left'							: click_x_ripple - ( circular_width / 2 ),
+						'content'						: '',
+					    'background-clip' 				: 'padding-box',
+					    '-webkit-border-radius'     	: '100%',
+					    'border-radius'             	: '100%',
+					    '-webkit-animation-name'		: 'ripple-animation',
+					    'animation-name'              	: 'ripple-animation',
+					    '-webkit-animation-duration'  	: '3s',
+					    'animation-duration'          	: 's',
+					    '-webkit-animation-fill-mode' 	: 'both',
+					    'animation-fill-mode'         	: 'both'  			
+					});
+					$('.ripple-effect-wrap:last').append( ripple );
+
+					setTimeout( function(){
+						ripple_effect_wrap.fadeOut(function(){
+							$(this).remove();
+						});
+					}, 500 );	
+
+					var href = the_dom.attr('href');
+			        var target = the_dom.attr('target');
+			        if(!target) { target = '_self'; }
+					if( typeof href != 'undefined' && href.substring(0, 1) != '#' ){
+						setTimeout( function(){
+							window.open(href,target);
+						}, 200 );
+					}
+
+					if( the_dom.is('input') || the_dom.is('button') ){
+						setTimeout( function(){
+							the_dom.removeClass('ripple-effect');
+							the_dom.trigger('click');
+							the_dom.addClass('ripple-effect');
+						}, 200 );
+					}
+				});	 
+			});
+		</script>
+
+	</body>
+</html>
