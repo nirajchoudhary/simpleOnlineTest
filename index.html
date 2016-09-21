@@ -338,7 +338,7 @@
 		</div>
 		<script>
 			function startTestFunc(){
-				$("#nameDivContent").html("<p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 0/5</b></p>");
+				$("#nameDivContent").html("<input type='hidden' id='userName' value='" + $("#userName").val() + "'><p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 0/5</b></p>");
 				$("#instructionsDiv").hide();
 				$("#QuesAnsDiv").show();
 				$("#Q1").show();
@@ -349,7 +349,7 @@
 					$("#nextQuesDiv1").show();
 				});
 				$("#nextQuesBut1").click(function(){
-					$("#nameDivContent").html("<p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 1/5</b></p>");
+					$("#nameDivContent").html("<input type='hidden' id='userName' value='" + $("#userName").val() + "'><p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 1/5</b></p>");
 					$("#Q1").hide();
 					$("#Q2").show();
 				});
@@ -357,7 +357,7 @@
 					$("#nextQuesDiv2").show();
 				});
 				$("#nextQuesBut2").click(function(){
-					$("#nameDivContent").html("<p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 2/5</b></p>");
+					$("#nameDivContent").html("<input type='hidden' id='userName' value='" + $("#userName").val() + "'><p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 2/5</b></p>");
 					$("#Q2").hide();
 					$("#Q3").show();
 				});
@@ -365,7 +365,7 @@
 					$("#nextQuesDiv3").show();
 				});
 				$("#nextQuesBut3").click(function(){
-					$("#nameDivContent").html("<p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 3/5</b></p>");
+					$("#nameDivContent").html("<input type='hidden' id='userName' value='" + $("#userName").val() + "'><p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 3/5</b></p>");
 					$("#Q3").hide();
 					$("#Q4").show();
 				});
@@ -373,7 +373,7 @@
 					$("#nextQuesDiv4").show();
 				});
 				$("#nextQuesBut4").click(function(){
-					$("#nameDivContent").html("<p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 4/5</b></p>");
+					$("#nameDivContent").html("<input type='hidden' id='userName' value='" + $("#userName").val() + "'><p><b>Hi " + $("#userName").val() + ", Welcome to Finomena!</b></p><p><b>Total Attempted Questions : 4/5</b></p>");
 					$("#Q4").hide();
 					$("#Q5").show();
 				});
@@ -399,7 +399,7 @@
 					var givenAns5 = $('input[name=Q5opt]:checked').val();
 					if(givenAns5 == 'O(n^2)') totalCorrect++;
 					$("#yourAns5").text("Your Answer : " + givenAns5);
-					$("#nameDivContent").html("<p><b>Thanks " + $("#userName").val() + ", </b></p><p><b>Your marks : " + totalCorrect + "/5</b></p>");
+					$("#nameDivContent").html("<input type='hidden' id='userName' value='" + $("#userName").val() + "'><p><b>Thanks " + $("#userName").val() + ", </b></p><p><b>Your marks : " + totalCorrect + "/5</b></p>");
 					// pie chart
 					google.charts.load("current", {packages:["corechart"]});
 					google.charts.setOnLoadCallback(drawChart);
